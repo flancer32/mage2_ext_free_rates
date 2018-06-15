@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Directory\Model\Currency\Import\Config">
+        <arguments>
+            <argument name="servicesConfig" xsi:type="array">
+                <item name="fcc" xsi:type="array">
+                    <item name="label" xsi:type="string">Free Currency Converter</item>
+                    <item name="class" xsi:type="string">Flancer32\FreeRates\Model\Currency\Import\Fcc</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>
