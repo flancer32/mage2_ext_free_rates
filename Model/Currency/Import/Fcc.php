@@ -23,14 +23,18 @@ class Fcc
     private $httpClient;
     /** @var \Magento\Framework\Json\Helper\Data */
     private $jsonHelper;
+    /** @var \Psr\Log\LoggerInterface */
+    private $logger;
 
     public function __construct(
+        \Psr\Log\LoggerInterface $logger,
         \Magento\Framework\HTTP\ZendClient $httpClient,
         \Magento\Directory\Model\CurrencyFactory $currencyFactory,
         \Magento\Framework\Json\Helper\Data $jsonHelper,
         \Flancer32\FreeRates\Helper\Config $hlpCfg
     ) {
         parent::__construct($currencyFactory);
+        $this->logger = $logger;
         $this->httpClient = $httpClient;
         $this->jsonHelper = $jsonHelper;
         $this->hlpCfg = $hlpCfg;
@@ -47,6 +51,7 @@ class Fcc
         $result = null;
         $url = str_replace('{{CURRENCY_FROM}}', $currencyFrom, self::CURRENCY_CONVERTER_URL);
         $url = str_replace('{{CURRENCY_TO}}', $currencyTo, $url);
+        $this->logger->info("Currency rates request: $url");
         $delay = $this->hlpCfg->getDelay();
         $timeout = $this->hlpCfg->getTimeout();
         try {
