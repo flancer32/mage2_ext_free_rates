@@ -10,3 +10,10 @@ $ ./bin/magento setup:upgrade
 $ ./bin/magento deploy:mode:set developer
 $ ./bin/magento deploy:mode:set production
 ```
+
+## Uninstall
+
+```
+$ ./bin/magento module:disable Flancer32_FreeRates
+$ composer remove flancer32/mage2_ext_free_rates
+```
