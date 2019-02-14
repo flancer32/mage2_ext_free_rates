@@ -11,6 +11,15 @@ $ ./bin/magento deploy:mode:set developer
 $ ./bin/magento deploy:mode:set production
 ```
 
+
+## Configuration
+
+Get your free API Key at "https://free.currencyconverterapi.com/free-api-key" 
+and put it into "_Stores / Configuration / General / Currency Setup / Free Currency Converter / API Key_":
+![Store Config Image](./etc/doc/img/store_config.png "Store Config")
+
+
+
 ## Uninstall
 
 ```

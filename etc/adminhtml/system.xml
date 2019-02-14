@@ -6,12 +6,17 @@
             <group id="fcc" translate="label"
                    sortOrder="41" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Free Currency Converter</label>
-                <field id="timeout" translate="label" type="text"
+                <field id="api_key" translate="label" type="text"
                        sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>API Key</label>
+                    <comment>Get your free API Key at "https://free.currencyconverterapi.com/free-api-key".</comment>
+                </field>
+                <field id="timeout" translate="label" type="text"
+                       sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Connection Timeout in Seconds</label>
                 </field>
                 <field id="delay" translate="label" type="text"
-                       sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                       sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Connection Delay Time in Seconds</label>
                 </field>
             </group>

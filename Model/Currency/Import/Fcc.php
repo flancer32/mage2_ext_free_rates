@@ -15,7 +15,7 @@ class Fcc
     /**
      * @var string
      */
-    const CURRENCY_CONVERTER_URL = 'https://free.currencyconverterapi.com/api/v3/convert?q={{CURRENCY_FROM}}_{{CURRENCY_TO}}';
+    const CURRENCY_CONVERTER_URL = 'https://free.currencyconverterapi.com/api/v3/convert?apiKey={{API_KEY}}&q={{CURRENCY_FROM}}_{{CURRENCY_TO}}';
 
     /** @var \Flancer32\FreeRates\Helper\Config */
     private $hlpCfg;
@@ -49,7 +49,9 @@ class Fcc
     protected function _convert($currencyFrom, $currencyTo, $retry = 0)
     {
         $result = null;
-        $url = str_replace('{{CURRENCY_FROM}}', $currencyFrom, self::CURRENCY_CONVERTER_URL);
+        $apiKey = $this->hlpCfg->getApiKey();
+        $url = str_replace('{{API_KEY}}', $apiKey, self::CURRENCY_CONVERTER_URL);
+        $url = str_replace('{{CURRENCY_FROM}}', $currencyFrom, $url);
         $url = str_replace('{{CURRENCY_TO}}', $currencyTo, $url);
         $this->logger->info("Currency rates request: $url");
         $delay = $this->hlpCfg->getDelay();

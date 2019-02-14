@@ -22,6 +22,15 @@ class Config
     /**
      * @return int
      */
+    public function getApiKey()
+    {
+        $result = (string)$this->scopeConfig->getValue('currency/fcc/api_key');
+        return $result;
+    }
+
+    /**
+     * @return int
+     */
     public function getDelay()
     {
         $result = (int)$this->scopeConfig->getValue('currency/fcc/delay');
